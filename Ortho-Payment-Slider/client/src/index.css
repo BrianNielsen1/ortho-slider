@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Practice Colors */
+  --primary: 225 65% 37%; /* #21409A - Dark Blue */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 196 100% 47%; /* #00AEEF - Cyan */
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 201 100% 84%; /* #B0E3FF - Light Blue */
+  --accent-foreground: 225 65% 37%;
+
+  --background: 201 100% 84%; /* #B0E3FF */
+  --foreground: 222 47% 11%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 225 65% 37%;
+
+  --radius: 0.75rem;
+
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-primary;
+  }
+}
+
+/* Custom Slider Styling */
+[data-radix-collection-item] {
+  @apply relative flex w-full touch-none select-none items-center;
+}
+
+.slider-root {
+  @apply relative flex w-full touch-none select-none items-center;
+}
+
+.slider-track {
+  @apply relative h-2 w-full grow overflow-hidden rounded-full bg-[#B0E3FF];
+}
+
+.slider-range {
+  @apply absolute h-full bg-[#00AEEF];
+}
+
+.slider-thumb {
+  @apply block h-5 w-5 rounded-full border-2 border-primary bg-white ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
