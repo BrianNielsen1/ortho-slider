@@ -1,4 +1,5 @@
 import { db } from "./db";
+import { eq } from "drizzle-orm";
 import {
   treatments,
   paymentPlans,
@@ -25,11 +26,8 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getTreatment(id: number): Promise<Treatment | undefined> {
-    const results = await db.select().from(treatments).where(treatments.id.equals(id)); // Note: Depending on drizzle version syntax might vary slightly, but standard select is safe
-    // Fix: drizzle-orm syntax for where eq
-    // Let's use the safer 'findFirst' style query logic or standard select with eq
-    // Re-writing to be safe with standard drizzle import in index/routes
-    return (await db.select().from(treatments)).find(t => t.id === id);
+    const results = await db.select().from(treatments).where(eq(treatments.id, id));
+    return results[0];
   }
 
   async createTreatment(treatment: InsertTreatment): Promise<Treatment> {

@@ -13,7 +13,7 @@ async function seedDatabase() {
       maxMonths: 24,
       interestRate: "0",
       type: "metal",
-      imageUrl: "https://images.unsplash.com/photo-1599612307525-4c6e93245452?q=80&w=600&auto=format&fit=crop"
+      imageUrl: "https://i.imgur.com/832a4wT.png"
     });
 
     await storage.createTreatment({
@@ -24,7 +24,7 @@ async function seedDatabase() {
       maxMonths: 22,
       interestRate: "0",
       type: "ceramic",
-      imageUrl: "https://images.unsplash.com/photo-1588776813677-77aa57e616da?q=80&w=600&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=600&auto=format&fit=crop"
     });
 
     await storage.createTreatment({

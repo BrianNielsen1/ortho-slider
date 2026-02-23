@@ -1,3 +1,4 @@
+
 import { cn } from "@/lib/utils";
 import { type Treatment } from "@shared/schema";
 import { Check } from "lucide-react";
@@ -26,9 +27,12 @@ export function TreatmentCard({ treatment, isSelected, onClick }: TreatmentCardP
       )}
       
       <div className="p-6">
-        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-2xl">
-          {/* Simple emoji fallback for icon if no image */}
-          {treatment.name.includes("Invisalign") ? "✨" : "🦷"}
+        <div className="mb-4 flex h-32 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-100">
+          {treatment.imageUrl ? (
+            <img src={treatment.imageUrl} alt={treatment.name} className="h-full w-full object-cover" />
+          ) : (
+            <span className="text-5xl">{treatment.name.includes("Aligner") ? "✨" : "🦷"}</span>
+          )}
         </div>
         
         <h3 className="mb-2 text-lg font-bold text-slate-900">{treatment.name}</h3>

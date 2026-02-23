@@ -98,8 +98,7 @@ export default function Home() {
                 key={treatment.id}
                 treatment={treatment}
                 isSelected={selectedTreatmentId === treatment.id}
-                onSelect={() => setSelectedTreatmentId(treatment.id)}
-                index={idx}
+                onClick={() => setSelectedTreatmentId(treatment.id)}
               />
             ))}
           </div>
